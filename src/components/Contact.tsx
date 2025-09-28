@@ -8,10 +8,13 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Phone, Mail, MessageCircle, MapPin, Clock } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-
 const Contact: React.FC = () => {
-  const { t } = useLanguage();
-  const { toast } = useToast();
+  const {
+    t
+  } = useLanguage();
+  const {
+    toast
+  } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -20,22 +23,22 @@ const Contact: React.FC = () => {
     service: '',
     message: ''
   });
-
   const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData(prev => ({
+      ...prev,
+      [field]: value
+    }));
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
     try {
       // Basic validation
       if (!formData.name || !formData.email || !formData.phone || !formData.message) {
         toast({
           title: "Vereiste velden ontbreken",
           description: "Vul alle vereiste velden in om door te gaan.",
-          variant: "destructive",
+          variant: "destructive"
         });
         return;
       }
@@ -46,7 +49,7 @@ const Contact: React.FC = () => {
         toast({
           title: "Ongeldig e-mailadres",
           description: "Voer een geldig e-mailadres in.",
-          variant: "destructive",
+          variant: "destructive"
         });
         return;
       }
@@ -69,10 +72,9 @@ Dit bericht is verzonden via het contactformulier op de website.
 
       // Open email client
       window.location.href = `mailto:Laithrazzak@gmail.com?subject=Nieuwe contactaanvraag - ${formData.name}&body=${emailBody}`;
-
       toast({
         title: "Bericht verzonden!",
-        description: "We nemen zo snel mogelijk contact met je op.",
+        description: "We nemen zo snel mogelijk contact met je op."
       });
 
       // Reset form
@@ -83,35 +85,27 @@ Dit bericht is verzonden via het contactformulier op de website.
         service: '',
         message: ''
       });
-
     } catch (error) {
       toast({
         title: "Er ging iets mis",
         description: "Probeer het opnieuw of neem direct contact met ons op.",
-        variant: "destructive",
+        variant: "destructive"
       });
     } finally {
       setIsSubmitting(false);
     }
   };
-
   const handleWhatsAppClick = () => {
-    const message = encodeURIComponent(
-      `Hallo! Ik heb interesse in rijlessen bij Top Automaat Les. Kunnen we een afspraak maken?`
-    );
+    const message = encodeURIComponent(`Hallo! Ik heb interesse in rijlessen bij Top Automaat Les. Kunnen we een afspraak maken?`);
     window.open(`https://wa.me/31614681863?text=${message}`, '_blank');
   };
-
   const handlePhoneClick = () => {
     window.open('tel:+31614681863', '_self');
   };
-
   const handleEmailClick = () => {
     window.open('mailto:Laithrazzak@gmail.com', '_self');
   };
-
-  return (
-    <section id="contact" className="py-20 bg-background-soft">
+  return <section id="contact" className="py-20 bg-background-soft">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -139,28 +133,13 @@ Dit bericht is verzonden via het contactformulier op de website.
                     <Label htmlFor="name" className="text-foreground font-medium">
                       {t('contact.form.name')} *
                     </Label>
-                    <Input
-                      id="name"
-                      value={formData.name}
-                      onChange={(e) => handleInputChange('name', e.target.value)}
-                      placeholder="Je volledige naam"
-                      className="bg-background border-border/50 focus:border-primary"
-                      required
-                    />
+                    <Input id="name" value={formData.name} onChange={e => handleInputChange('name', e.target.value)} placeholder="Je volledige naam" className="bg-background border-border/50 focus:border-primary" required />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="phone" className="text-foreground font-medium">
                       {t('contact.form.phone')} *
                     </Label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={(e) => handleInputChange('phone', e.target.value)}
-                      placeholder="+31 6 12345678"
-                      className="bg-background border-border/50 focus:border-primary"
-                      required
-                    />
+                    <Input id="phone" type="tel" value={formData.phone} onChange={e => handleInputChange('phone', e.target.value)} placeholder="+31 6 12345678" className="bg-background border-border/50 focus:border-primary" required />
                   </div>
                 </div>
 
@@ -168,22 +147,14 @@ Dit bericht is verzonden via het contactformulier op de website.
                   <Label htmlFor="email" className="text-foreground font-medium">
                     {t('contact.form.email')} *
                   </Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => handleInputChange('email', e.target.value)}
-                    placeholder="je.email@voorbeeld.com"
-                    className="bg-background border-border/50 focus:border-primary"
-                    required
-                  />
+                  <Input id="email" type="email" value={formData.email} onChange={e => handleInputChange('email', e.target.value)} placeholder="je.email@voorbeeld.com" className="bg-background border-border/50 focus:border-primary" required />
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="service" className="text-foreground font-medium">
                     {t('contact.form.service')}
                   </Label>
-                  <Select value={formData.service} onValueChange={(value) => handleInputChange('service', value)}>
+                  <Select value={formData.service} onValueChange={value => handleInputChange('service', value)}>
                     <SelectTrigger className="bg-background border-border/50 focus:border-primary">
                       <SelectValue placeholder="Kies een service..." />
                     </SelectTrigger>
@@ -200,22 +171,10 @@ Dit bericht is verzonden via het contactformulier op de website.
                   <Label htmlFor="message" className="text-foreground font-medium">
                     {t('contact.form.message')} *
                   </Label>
-                  <Textarea
-                    id="message"
-                    value={formData.message}
-                    onChange={(e) => handleInputChange('message', e.target.value)}
-                    placeholder="Vertel ons over je wensen en vragen..."
-                    rows={4}
-                    className="bg-background border-border/50 focus:border-primary resize-none"
-                    required
-                  />
+                  <Textarea id="message" value={formData.message} onChange={e => handleInputChange('message', e.target.value)} placeholder="Vertel ons over je wensen en vragen..." rows={4} className="bg-background border-border/50 focus:border-primary resize-none" required />
                 </div>
 
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full btn-hero py-3 font-semibold"
-                >
+                <Button type="submit" disabled={isSubmitting} className="w-full btn-hero py-3 font-semibold">
                   {isSubmitting ? 'Verzenden...' : t('contact.form.submit')}
                 </Button>
               </form>
@@ -233,11 +192,7 @@ Dit bericht is verzonden via het contactformulier op de website.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <Button
-                  onClick={handleWhatsAppClick}
-                  className="w-full btn-secondary justify-start gap-3 py-4"
-                  size="lg"
-                >
+                <Button onClick={handleWhatsAppClick} className="w-full btn-secondary justify-start gap-3 py-4" size="lg">
                   <MessageCircle className="w-5 h-5" />
                   <div className="text-left">
                     <div className="font-medium">{t('contact.whatsapp')}</div>
@@ -245,12 +200,7 @@ Dit bericht is verzonden via het contactformulier op de website.
                   </div>
                 </Button>
 
-                <Button
-                  onClick={handlePhoneClick}
-                  variant="outline"
-                  className="w-full justify-start gap-3 py-4 bg-background hover:bg-primary/5 border-primary/20"
-                  size="lg"
-                >
+                <Button onClick={handlePhoneClick} variant="outline" className="w-full justify-start gap-3 py-4 bg-background hover:bg-primary/5 border-primary/20" size="lg">
                   <Phone className="w-5 h-5 text-primary" />
                   <div className="text-left">
                     <div className="font-medium text-foreground">Bel direct</div>
@@ -258,12 +208,7 @@ Dit bericht is verzonden via het contactformulier op de website.
                   </div>
                 </Button>
 
-                <Button
-                  onClick={handleEmailClick}
-                  variant="outline"
-                  className="w-full justify-start gap-3 py-4 bg-background hover:bg-accent/5 border-accent/20"
-                  size="lg"
-                >
+                <Button onClick={handleEmailClick} variant="outline" className="w-full justify-start gap-3 py-4 bg-background hover:bg-accent/5 border-accent/20" size="lg">
                   <Mail className="w-5 h-5 text-accent-foreground" />
                   <div className="text-left">
                     <div className="font-medium text-foreground">{t('contact.email')}</div>
@@ -283,7 +228,7 @@ Dit bericht is verzonden via het contactformulier op de website.
                   <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
                   <div>
                     <div className="font-medium text-foreground">Servicegebied</div>
-                    <div className="text-sm text-muted-foreground">Nederland - Flexibele locaties</div>
+                    <div className="text-sm text-muted-foreground">Amsterdam en omgeving</div>
                   </div>
                 </div>
 
@@ -302,8 +247,6 @@ Dit bericht is verzonden via het contactformulier op de website.
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Contact;
