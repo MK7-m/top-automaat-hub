@@ -227,8 +227,19 @@ Dit bericht is verzonden via het contactformulier op de website.
                 <div className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
                   <div>
-                    <div className="font-medium text-foreground">Servicegebied</div>
-                    <div className="text-sm text-muted-foreground">Amsterdam en omgeving</div>
+                    <div className="font-medium text-foreground">{t('footer.address')}</div>
+                    <div className="text-sm text-muted-foreground">
+                      Slotermeerlaan 58<br />
+                      1064 HC Amsterdam
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
+                  <div>
+                    <div className="font-medium text-foreground">{t('footer.serviceArea')}</div>
+                    <div className="text-sm text-muted-foreground">{t('footer.serviceAreaText')}</div>
                   </div>
                 </div>
 
@@ -238,7 +249,8 @@ Dit bericht is verzonden via het contactformulier op de website.
                     <div className="font-medium text-foreground">Beschikbaarheid</div>
                     <div className="text-sm text-muted-foreground">
                       Ma-Vr: 08:00 - 20:00<br />
-                      Za-Zo: 09:00 - 18:00
+                      Za: 09:00 - 18:00<br />
+                      <span className="text-destructive">Zo: {t('footer.closed')}</span>
                     </div>
                   </div>
                 </div>
