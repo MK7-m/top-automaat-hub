@@ -71,6 +71,14 @@ const translations = {
     // Footer
     'footer.contact': 'Contact gegevens',
     'footer.services': 'Onze diensten',
+    'footer.business_info': 'Bedrijfsinformatie',
+    'footer.address': 'Adres',
+    'footer.service_area': 'Werkgebied',
+    'footer.service_area_text': 'Amsterdam en omgeving',
+    'footer.hours': 'Openingstijden',
+    'footer.weekdays': 'Ma-Vr',
+    'footer.saturday': 'Zaterdag',
+    'footer.sunday_closed': 'Zondag: Gesloten',
     'footer.rights': '© 2024 Top Automaat Les. Alle rechten voorbehouden.',
   },
   en: {
@@ -124,6 +132,14 @@ const translations = {
     // Footer
     'footer.contact': 'Contact information',
     'footer.services': 'Our services',
+    'footer.business_info': 'Business Information',
+    'footer.address': 'Address',
+    'footer.service_area': 'Service Area',
+    'footer.service_area_text': 'Amsterdam and surrounding area',
+    'footer.hours': 'Opening Hours',
+    'footer.weekdays': 'Mon-Fri',
+    'footer.saturday': 'Saturday',
+    'footer.sunday_closed': 'Sunday: Closed',
     'footer.rights': '© 2024 Top Automaat Les. All rights reserved.',
   },
   ar: {
@@ -177,6 +193,14 @@ const translations = {
     // Footer
     'footer.contact': 'معلومات الاتصال',
     'footer.services': 'خدماتنا',
+    'footer.business_info': 'معلومات الشركة',
+    'footer.address': 'العنوان',
+    'footer.service_area': 'منطقة الخدمة',
+    'footer.service_area_text': 'أمستردام والمناطق المحيطة',
+    'footer.hours': 'ساعات العمل',
+    'footer.weekdays': 'الإثنين-الجمعة',
+    'footer.saturday': 'السبت',
+    'footer.sunday_closed': 'الأحد: مغلق',
     'footer.rights': '© 2024 Top Automaat Les. جميع الحقوق محفوظة.',
   },
 };

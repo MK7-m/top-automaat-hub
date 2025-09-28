@@ -88,20 +88,30 @@ const Footer: React.FC = () => {
 
           {/* Business Hours & Location */}
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold">Beschikbaarheid</h4>
+            <h4 className="text-lg font-semibold">{t('footer.business_info')}</h4>
             <div className="space-y-3">
               <div className="flex items-start gap-3">
-                <Clock className="w-4 h-4 text-white/60 mt-1 flex-shrink-0" />
+                <MapPin className="w-4 h-4 text-white/60 mt-1 flex-shrink-0" />
                 <div className="text-sm text-white/80">
-                  <div>Ma-Vr: 08:00 - 20:00</div>
-                  <div>Za-Zo: 09:00 - 18:00</div>
+                  <div className="font-medium">{t('footer.address')}</div>
+                  <div>Slotermeerlaan 58</div>
+                  <div>1064 HC Amsterdam</div>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-white/60 mt-1 flex-shrink-0" />
                 <div className="text-sm text-white/80">
-                  Nederland<br />
-                  Flexibele leslocaties
+                  <div className="font-medium">{t('footer.service_area')}</div>
+                  <div>{t('footer.service_area_text')}</div>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Clock className="w-4 h-4 text-white/60 mt-1 flex-shrink-0" />
+                <div className="text-sm text-white/80">
+                  <div className="font-medium">{t('footer.hours')}</div>
+                  <div>{t('footer.weekdays')}: 08:00 - 20:00</div>
+                  <div>{t('footer.saturday')}: 09:00 - 18:00</div>
+                  <div className="text-red-300">{t('footer.sunday_closed')}</div>
                 </div>
               </div>
             </div>
