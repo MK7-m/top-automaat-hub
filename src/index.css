@@ -165,7 +165,7 @@ All colors MUST be HSL.
 
   /* Card Styles */
   .card-soft {
-    @apply bg-card-soft border border-border/50 rounded-2xl;
+    @apply border border-border/50 rounded-2xl;
     @apply shadow-sm hover:shadow-md transition-all duration-300;
     background: hsl(var(--card-soft));
   }
@@ -178,7 +178,7 @@ All colors MUST be HSL.
 
   /* Success Card */
   .card-success {
-    @apply bg-success-soft border border-success/20 rounded-xl;
+    @apply border border-success/20 rounded-xl;
     @apply hover:shadow-lg transition-all duration-300;
     background: hsl(var(--success-soft));
   }
