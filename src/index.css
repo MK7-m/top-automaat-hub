@@ -2,41 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Top Automaat Les Driving School Design System
+Light pastel colors with professional, friendly feel
 All colors MUST be HSL.
 */
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Background System - Light pastels */
+    --background: 255 255 100%; /* Pure white base */
+    --background-soft: 210 30% 98%; /* Very light blue-gray */
+    --background-accent: 200 25% 96%; /* Soft blue accent */
+    --foreground: 220 15% 20%; /* Dark blue-gray text */
 
+    /* Card System */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 15% 20%;
+    --card-soft: 210 20% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Primary Brand - Soft Blue */
+    --primary: 210 100% 60%; /* Bright blue for CTAs */
+    --primary-soft: 210 50% 85%; /* Light blue background */
+    --primary-foreground: 0 0% 100%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Secondary - Mint Green */
+    --secondary: 160 50% 75%; /* Soft mint green */
+    --secondary-soft: 160 30% 90%; /* Very light mint */
+    --secondary-foreground: 160 80% 15%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Coral/Peach */
+    --accent: 15 80% 75%; /* Warm coral */
+    --accent-soft: 15 50% 90%; /* Light coral */
+    --accent-foreground: 15 60% 20%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Success - Soft Green */
+    --success: 140 60% 65%;
+    --success-soft: 140 40% 90%;
+    --success-foreground: 140 80% 20%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Utility Colors */
+    --muted: 210 15% 92%;
+    --muted-foreground: 220 10% 45%;
+    --border: 210 20% 88%;
+    --input: 210 20% 94%;
+    --ring: 210 100% 60%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(210, 100%, 60%), hsl(200, 80%, 70%));
+    --gradient-secondary: linear-gradient(135deg, hsl(160, 50%, 75%), hsl(140, 60%, 65%));
+    --gradient-hero: linear-gradient(135deg, hsl(210, 50%, 85%), hsl(200, 40%, 92%));
+    --gradient-success: linear-gradient(45deg, hsl(140, 60%, 65%), hsl(160, 50%, 75%));
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Shadows */
+    --shadow-soft: 0 2px 20px hsl(210, 50%, 85% / 0.3);
+    --shadow-medium: 0 4px 30px hsl(210, 100%, 60% / 0.15);
+    --shadow-strong: 0 8px 40px hsl(210, 100%, 60% / 0.25);
 
-    --radius: 0.5rem;
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +128,80 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-poppins;
+  }
+}
+
+@layer components {
+  /* Hero Button Styles */
+  .btn-hero {
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground;
+    @apply px-8 py-4 rounded-xl font-semibold text-lg;
+    @apply shadow-lg hover:shadow-xl;
+    @apply transition-all duration-300;
+    @apply hover:scale-105;
+    background: var(--gradient-primary);
+  }
+
+  .btn-secondary {
+    @apply bg-secondary hover:bg-secondary/90 text-secondary-foreground;
+    @apply px-6 py-3 rounded-lg font-medium;
+    @apply shadow-md hover:shadow-lg;
+    @apply transition-all duration-300;
+    background: var(--gradient-secondary);
+  }
+
+  .btn-accent {
+    @apply bg-accent hover:bg-accent/90 text-accent-foreground;
+    @apply px-6 py-3 rounded-lg font-medium;
+    @apply shadow-md hover:shadow-lg;
+    @apply transition-all duration-300;
+  }
+
+  /* Card Styles */
+  .card-soft {
+    @apply bg-card-soft border border-border/50 rounded-2xl;
+    @apply shadow-sm hover:shadow-md transition-all duration-300;
+    background: hsl(var(--card-soft));
+  }
+
+  .card-hero {
+    @apply bg-white/80 backdrop-blur-sm border border-white/20 rounded-2xl;
+    @apply shadow-lg hover:shadow-xl transition-all duration-300;
+    @apply hover:scale-105;
+  }
+
+  /* Success Card */
+  .card-success {
+    @apply bg-success-soft border border-success/20 rounded-xl;
+    @apply hover:shadow-lg transition-all duration-300;
+    background: hsl(var(--success-soft));
+  }
+
+  /* Text Gradients */
+  .text-gradient-primary {
+    background: var(--gradient-primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-success {
+    background: var(--gradient-success);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Language Switcher */
+  .lang-switcher {
+    @apply flex items-center gap-2 px-3 py-2 rounded-lg;
+    @apply bg-white/80 border border-white/20 backdrop-blur-sm;
+    @apply hover:bg-white/90 transition-all duration-300;
   }
 }
