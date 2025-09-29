@@ -20,7 +20,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-background-soft via-background to-background-accent">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-background-soft via-background to-background-accent pt-20 md:pt-16">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-20 w-32 h-32 rounded-full bg-primary/20 animate-pulse"></div>
