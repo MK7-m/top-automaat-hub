@@ -25,13 +25,13 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavigate }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center gap-3">
-            <div className="flex items-center justify-center w-10 h-10 bg-primary rounded-lg shadow-md">
-              <Car className="w-6 h-6 text-primary-foreground" />
+          <div className="flex items-center gap-2 sm:gap-3">
+            <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-primary rounded-lg shadow-md">
+              <Car className="w-4 h-4 sm:w-6 sm:h-6 text-primary-foreground" />
             </div>
-            <div>
-              <h1 className="text-xl font-bold text-foreground">Top Automaat Les</h1>
-              <p className="text-xs text-muted-foreground">Driving School</p>
+            <div className="min-w-0">
+              <h1 className="text-sm sm:text-xl font-bold text-foreground whitespace-nowrap overflow-hidden text-ellipsis">Top Automaat Les</h1>
+              <p className="text-xs text-muted-foreground hidden sm:block">Driving School</p>
             </div>
           </div>
 

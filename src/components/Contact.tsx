@@ -238,8 +238,8 @@ Dit bericht is verzonden via het contactformulier op de website.
                 <div className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
                   <div>
-                    <div className="font-medium text-foreground">{t('footer.serviceArea')}</div>
-                    <div className="text-sm text-muted-foreground">{t('footer.serviceAreaText')}</div>
+                    <div className="font-medium text-foreground">{t('footer.service_area')}</div>
+                    <div className="text-sm text-muted-foreground">{t('footer.service_area_text')}</div>
                   </div>
                 </div>
 
@@ -250,7 +250,7 @@ Dit bericht is verzonden via het contactformulier op de website.
                     <div className="text-sm text-muted-foreground">
                       Ma-Vr: 08:00 - 20:00<br />
                       Za: 09:00 - 18:00<br />
-                      <span className="text-destructive">Zo: {t('footer.closed')}</span>
+                      <span className="text-destructive">Zo: {t('footer.sunday_closed').split(': ')[1]}</span>
                     </div>
                   </div>
                 </div>
